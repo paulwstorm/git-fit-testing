@@ -8,7 +8,21 @@ import React, { Component } from "react";
 class ViewMacros extends Component {
     render() {
         return(
-            <div>Welcome to the Macros Page</div>
+        <div> <h1> Username's Meals  </h1>
+        <form className="input-group">
+        <input
+          placeholder="Add your breakfast item"
+          className="form-control"
+          
+        />
+        <span className="input-group-btn">
+          <button type="submit" className="btn btn-secondary">
+            Add Breakfast Item
+          </button>
+        </span>
+      </form>
+      </div>
+
         )
     }
 

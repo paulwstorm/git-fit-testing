@@ -8,11 +8,27 @@ import React, { Component } from "react";
 class AddMeal extends Component {
     render() {
         return(
-            <div>Welcome to the Add Meal Page</div>
-        )
-    }
-
-
+            <div> <h1> Username's Meals  </h1>
+            <form className="input-group">
+            <input
+              placeholder="Add your Meal item"
+              className="form-control"
+              
+            />
+            <span className="input-group-btn">
+              <button type="submit" className="btn btn-primary">
+                Add Meal Item 
+              </button>
+            </span>
+          </form>
+          </div>
+    );
+  }
 }
+        
+    
+
+
+
 
 export default AddMeal
