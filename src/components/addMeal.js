@@ -8,6 +8,7 @@ import React, { Component } from "react";
 class AddMeal extends Component {
     render() {
         return(
+   
             <div> <h1> Username's Meals  </h1>
             <form className="input-group">
             <input
@@ -15,6 +16,16 @@ class AddMeal extends Component {
               className="form-control"
               
             />
+             <div className="dropdown">
+  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a className="dropdown-item">Breakfast</a>
+    <a className="dropdown-item">Lunch</a>
+    <a className="dropdown-item">Dinner</a>
+  </div>
+</div>
             <span className="input-group-btn">
               <button type="submit" className="btn btn-primary">
                 Add Meal Item 
