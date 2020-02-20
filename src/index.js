@@ -9,8 +9,8 @@ import reducers from "./reducers/index.js";
 import Home from "./components/home.js"
 import ViewMeals from "./components/viewMeals.js"
 import AddMeal from "./components/addMeal.js"
-import ViewMeals from "./components/viewMeal.js"
-import ViewMacros from "./components/macros.js"
+import ViewMeal from "./components/viewMeal.js"
+import ViewMacros from "./components/viewMacros.js"
 
 import 'bootstrap/dist/css/bootstrap.css'
 
