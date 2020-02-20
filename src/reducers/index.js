@@ -4,7 +4,7 @@ import uuid from 'uuid'
 
 const defaultState = {
   meals: {
-    breakfast: [],
+    breakfast: [{id: 0, name: "banana"}],
     lunch: [],
     dinner: [],
     snack: []

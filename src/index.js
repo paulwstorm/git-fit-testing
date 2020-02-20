@@ -23,7 +23,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/meals" component={ViewMeals} />
-          <Route path="/meals/:type/add" component={AddMeal} />
+          <Route path="/meals/add" component={AddMeal} />
           <Route path="/meals/:type/view" component={ViewMeal} />
           <Route path="/meals/macros" component={ViewMacros} />
         </Switch>

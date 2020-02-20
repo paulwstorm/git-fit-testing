@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import { fetchPosts } from "../actions";
 
@@ -9,7 +9,14 @@ class ViewMeals extends Component {
     render() {
         return (
             <div className="container col-12">
-                <h1 className="text-center">Username's Meal</h1>
+                <div className="row">
+                    <div className="col-md-9">
+                      <h1 className="text-center">{this.props.user.userName}'s Meal</h1>
+                    </div>
+                    <div className="col-md-3">
+                      <Link to={'/meals/add'}><button className="btn btn-success">Add Meal</button></Link>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-3 border border-success" >
                         <h3 className="text-center">Breakfast</h3>
@@ -20,7 +27,7 @@ class ViewMeals extends Component {
                     <div className="col-3 border border-success">
                         <h3 className="text-center">Lunch</h3>
                         <ul className="lunch-list">
-                            <li>turkey</li>
+                            <li></li>
                         </ul>
                     </div>
                     <div className="col-3 border border-success">
@@ -34,7 +41,7 @@ class ViewMeals extends Component {
                 </div>
                 <div className="row">
                     <div className="col-9">
-                        <h5 className="text-center">Total Calories/Calorie Goal</h5>
+                        <h5 className="text-center">Total Calories/ {this.props.user.calGoal}</h5>
                     </div>
                     <div className="col-3">
                         <Link to={"/meals/macros"} ><button className="btn btn-success">View Macros</button></Link>
@@ -48,4 +55,11 @@ class ViewMeals extends Component {
 
 }
 
-export default ViewMeals
+function mapStateToProps(state) {
+  return {
+    meals: state.meals,
+    user: state.user
+   };
+}
+
+export default connect(mapStateToProps)(ViewMeals);
