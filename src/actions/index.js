@@ -5,6 +5,7 @@ export const ADD_BREAKFAST_ITEM = "add_breakfast_item"
 export const ADD_LUNCH_ITEM = "add_lunch_item"
 export const ADD_DINNER_ITEM = "add_dinner_item"
 export const ADD_SNACK_ITEM = "add_snack_item"
+export const DELETE_FOOD_ITEM = "delete_food_item"
 
 
 export function newUser(user) {
@@ -38,10 +39,17 @@ export function addFoodItem(query, meal) {
         type: ADD_DINNER_ITEM,
         payload: food
       }
-    case "snack":
+    case "snacks":
       return {
         type: ADD_SNACK_ITEM,
         payload: food
       }
+  }
+}
+
+export function deleteFoodItem(foodItem, meal) {
+  return {
+    type: DELETE_FOOD_ITEM,
+    payload: [foodItem, meal]
   }
 }

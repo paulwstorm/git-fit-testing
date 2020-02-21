@@ -1,16 +1,16 @@
 import { combineReducers } from "redux";
-import { ADD_USER, ADD_BREAKFAST_ITEM, ADD_LUNCH_ITEM, ADD_DINNER_ITEM, ADD_SNACK_ITEM } from "../actions/index.js"
+import { ADD_USER, ADD_BREAKFAST_ITEM, ADD_LUNCH_ITEM, ADD_DINNER_ITEM, ADD_SNACK_ITEM, DELETE_FOOD_ITEM } from "../actions/index.js"
 import uuid from 'uuid'
 import _ from "lodash";
 
 const defaultState = {
   meals: {
     breakfast: [],
-    lunch: [],
+    lunch: [{id: 1, food_name: "pizza", serving_qty: "1", serving_unit: "slice", nf_calories: "284.62"}],
     dinner: [],
-    snack: []
+    snacks: []
   },
-  currentNutrition: {}
+  currentNutrition: {},
   user: {
     userName: "David",
     calGoal: "2000"
@@ -19,7 +19,6 @@ const defaultState = {
 
 const rootReducer = combineReducers({
   meals: function(state = defaultState, action) {
-    console.log(action)
     switch (action.type) {
       case ADD_BREAKFAST_ITEM:
         const breakfastItem = action.payload.data.foods[0]
@@ -49,6 +48,17 @@ const rootReducer = combineReducers({
         const addSnack = state
         addSnack.meals.snacks = snacks
         return addSnack
+      case DELETE_FOOD_ITEM:
+        const meal = action.payload[1]
+        const food = action.payload[0]
+        const mealFoodDeleted = state.meals[meal].filter(currentFood => {
+          if (currentFood.id !== food.id) {
+            return currentFood
+          }
+        })
+        const stateFoodDeleted = _.clone(state)
+        stateFoodDeleted.meals[meal] = mealFoodDeleted
+        return stateFoodDeleted
       default:
         return state
       }

@@ -3,29 +3,37 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
-import { addFoodItem } from "../actions/index.js";
+import { addFoodItem, deleteFoodItem } from "../actions/index.js";
 
 class AddMeal extends Component {
-    constructor () {
-      super()
+    constructor (props) {
+      super(props)
 
       this.state = {
-        meal: null,
-        currentFood: null,
+        meal: this.props.location.editMeal || "",
+        currentFood: [],
         query: ""
       }
 
       this.setMeal = this.setMeal.bind(this)
       this.searchFoodItem = this.searchFoodItem.bind(this)
+      this.deleteFood = this.deleteFood.bind(this)
+    }
 
+    getMealFood() {
+      const getFood = this.props.meals[this.state.meal]
+      this.setState({ currentFood: getFood})
+    }
+
+    componentDidMount() {
+      this.getMealFood()
     }
 
     setMeal(event) {
       const thisMeal = event.target.value
       this.setState({ meal: event.target.value })
 
-      const getFood = this.props.meals[thisMeal]
-      this.setState({ currentFood: getFood})
+      this.getMealFood()
     }
 
     async searchFoodItem() {
@@ -36,18 +44,27 @@ class AddMeal extends Component {
         alert("Please enter a food!")
         return true
       }
-      
+
       await this.props.addFoodItem(this.state.query, this.state.meal)
 
-      const getFood = this.props.meals[this.state.meal]
-      console.log(this.props.meals[this.state.meal])
-      this.setState({ currentFood: getFood})
+      this.getMealFood()
+    }
+
+    deleteFood(foodItem) {
+      this.props.deleteFoodItem(foodItem, this.state.meal)
+
+      this.getMealFood()
     }
 
     renderFood() {
       if (this.state.currentFood) {
         return this.state.currentFood.map( foodItem => {
-            return <li key={foodItem.id}>{ foodItem.food_name }</li>
+            return (
+              <li key={foodItem.id}>
+                { foodItem.food_name }
+                <button className="btn btn-primary" onClick={event => {this.deleteFood(foodItem)}}> Delete </button>
+              </li>
+            )
           })
       }
     }
@@ -56,15 +73,18 @@ class AddMeal extends Component {
         return(
 
             <div>
+              <Link to={'/meals'}><button className="btn btn-primary">Back</button></Link>
               <h1> Add a Meal </h1>
-              <label htmlFor="meals">Choose a meal:</label>
+              <div>
+                <label htmlFor="meals">Choose a meal:</label>
 
-              <select id="meals">
-                <option onClick={event => {this.setMeal(event)}} value="breakfast">Breakfast</option>
-                <option onClick={event => {this.setMeal(event)}} value="lunch">Lunch</option>
-                <option onClick={event => {this.setMeal(event)}} value="dinner">Dinner</option>
-                <option onClick={event => {this.setMeal(event)}} value="snack">Snack</option>
-              </select>
+                <select id="meals">
+                  <option onClick={event => {this.setMeal(event)}} value="breakfast">Breakfast</option>
+                  <option onClick={event => {this.setMeal(event)}} value="lunch">Lunch</option>
+                  <option onClick={event => {this.setMeal(event)}} value="dinner">Dinner</option>
+                  <option onClick={event => {this.setMeal(event)}} value="snacks">Snacks</option>
+                </select>
+              </div>
               <form className="input-group">
                 <input
                   placeholder="Add your Meal item"
@@ -93,7 +113,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addFoodItem }, dispatch);
+  return bindActionCreators({ addFoodItem, deleteFoodItem }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddMeal);
