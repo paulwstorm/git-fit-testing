@@ -8,19 +8,10 @@ import React, { Component } from "react";
 class ViewMacros extends Component {
     render() {
         return(
-        <div> <h1> Username's Meals  </h1>
-        <form className="input-group">
-        <input
-          placeholder="Add your breakfast item"
-          className="form-control"
-          
-        />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">
-            Add Breakfast Item
-          </button>
-        </span>
-      </form>
+        <div> <h1> {this.props.user.userName}'s  Macros  </h1>
+        <h3> Your Carbohydrates Total: </h3>
+        <h3> Your Protein Total: </h3>
+        <h3> Your Fat Total: </h3>
       </div>
 
         )
