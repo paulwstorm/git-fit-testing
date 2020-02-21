@@ -14,7 +14,7 @@ class ViewMeals extends Component {
                         <h1 className="text-center">{this.props.user.userName}'s Meals</h1>
                     </div>
                     <div className="col-md-3">
-                        <Link to={'/meals/add'}><button className="btn btn-primary">Add Meal</button></Link>
+                        <Link to={'/meals/add'}><button className="btn btn-primary add-meal">Add Meal</button></Link>
                     </div>
                 </div>
                 <div className="row">
@@ -24,7 +24,7 @@ class ViewMeals extends Component {
                                 <h3 className="text-center">Breakfast</h3>
                             </div>
                             <div className="col-3">
-                                <Link to={{ pathname: '/meals/add', editMeal: "breakfast" }}><button className="btn btn-primary">Edit</button></Link>
+                                <Link to={{ pathname: '/meals/add', editMeal: "breakfast" }}><button className="btn btn-primary float-right edit-meal">Edit</button></Link>
                             </div>
                         </div>
                         <ul className="list-group list-group-flush breakfast-list">
@@ -48,7 +48,7 @@ class ViewMeals extends Component {
                                 <h3 className="text-center">Lunch</h3>
                             </div>
                             <div className="col-3">
-                                <Link to={{ pathname: '/meals/add', editMeal: "lunch" }}><button className="btn btn-primary">Edit</button></Link>
+                                <Link to={{ pathname: '/meals/add', editMeal: "lunch" }}><button className="btn btn-primary float-right edit-meal">Edit</button></Link>
                             </div>
                         </div>
                         <ul className="list-group list-group-flush lunch-list">
@@ -71,7 +71,7 @@ class ViewMeals extends Component {
                                 <h3 className="text-center">Dinner</h3>
                             </div>
                             <div className="col-3">
-                                <Link to={{ pathname: '/meals/add', editMeal: "dinner" }}><button className="btn btn-primary">Edit</button></Link>
+                                <Link to={{ pathname: '/meals/add', editMeal: "dinner" }}><button className="btn btn-primary float-right edit-meal">Edit</button></Link>
                             </div>
                         </div>
                         <ul className="list-group list-group-flush dinner-list">
@@ -94,7 +94,7 @@ class ViewMeals extends Component {
                                 <h3 className="text-center">Snacks</h3>
                             </div>
                             <div className="col-3">
-                                <Link to={{ pathname: '/meals/add', editMeal: "snacks" }}><button className="btn btn-primary">Edit</button></Link>
+                                <Link to={{ pathname: '/meals/add', editMeal: "snacks" }}><button className="btn btn-primary float-right edit-meal">Edit</button></Link>
                             </div>
                         </div>
                         <ul className="list-group list-group-flush snack-list">
@@ -114,10 +114,10 @@ class ViewMeals extends Component {
                 </div>
                 <div className="row">
                     <div className="col-9">
-                        <h5 className="text-center">Total Calories/ {this.props.user.calGoal}</h5>
+                        <h5 className="text-center">Total Calories/ Calorie Goal: {this.props.user.calGoal}</h5>
                     </div>
                     <div className="col-3">
-                        <Link to={"/meals/macros"} ><button className="btn btn-primary">View Macros</button></Link>
+                        <Link to={"/meals/macros"} ><button className="btn btn-primary view-macros">View Macros</button></Link>
                     </div>
                 </div>
             </div>

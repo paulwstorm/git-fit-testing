@@ -79,7 +79,7 @@ class Home extends Component {
       if (endWeight != startWeight){
         return Math.floor(calories + ((7500/50) * (endWeight - startWeight)))
       } else {
-        return calories
+        return Math.floor(calories)
       }
     }
 
@@ -93,53 +93,69 @@ class Home extends Component {
       return(
           <div>
             <div>
-                <h1>Git-Fit App</h1>
-                <br />
-                <h4>Please Enter Your Name and Calorie Goal</h4>
-                <input className="username-input" onChange={event => this.setState({ userName: event.target.value })} placeholder="Username"></input>
-                <input className="cal-goal-input" onChange={event => this.setState({ calGoal: event.target.value })}placeholder="Calorie Goal"></input>
+              <div className="row">
+                <div className="col-sm-1"></div>
+                <div className="col-sm-8">
+                  <h1>Git-Fit App</h1>
+                  <br />
+                  <h4>Please Enter Your Name and Calorie Goal</h4>
+                  <input className="username-input" onChange={event => this.setState({ userName: event.target.value })} placeholder="Username"></input>
+                  <input className="cal-goal-input" onChange={event => this.setState({ calGoal: event.target.value })}placeholder="Calorie Goal"></input>
+                </div>
+                <div className="col-sm-3"></div>
+              </div>
             </div>
             <br />
+            <br />
+            <br />
             <div>
-              <h4>Or Calculate Your Calorie Goal Here</h4>
-              <form>
-                <span><label htmlFor="gender">Gender:</label></span>
-                  <select onClick={event => {this.setState({ userGender: event.target.value })}} id="gender">
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <input
-                    placeholder="Weight (kg)"
-                    className="form-control"
-                    onChange={event => {this.setState({ userWeight: event.target.value})}}
-                  />
-                  <input
-                    placeholder="Weight Goal (kg)"
-                    className="form-control"
-                    onChange={event => {this.setState({ userWeightGoal: event.target.value})}}
-                  />
-                  <input
-                    placeholder="Height (cm)"
-                    className="form-control"
-                    onChange={event => {this.setState({ userHeight: event.target.value})}}
-                  />
-                  <input
-                    placeholder="Age"
-                    className="form-control"
-                    onChange={event => {this.setState({ userAge: event.target.value})}}
-                  />
-                  <span><label htmlFor="exercise">Exercise Amount (weekly):</label></span>
-                    <select onClick={event => {this.setState({ userExercise: event.target.value })}} id="exercise">
-                      <option value="0">None</option>
-                      <option value="3">Three or Less</option>
-                      <option value="4">Four to Six</option>
-                      <option value="7">Seven or More</option>
-                    </select>
-                  <button className="btn btn-primary submit-button" onClick={event => {event.preventDefault();this.calGoalCalculator()}}>Calculate</button>
-              </form>
+              <div className="row">
+                <div className="col-sm-1"></div>
+                <div className="col-sm-6">
+                  <h4>Or Calculate Your Calorie Goal Here</h4>
+                  <form>
+                    <span><label htmlFor="gender">Gender:</label></span>
+                      <select onClick={event => {this.setState({ userGender: event.target.value })}} id="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                      </select>
+                      <div className="col-sm-6 text-center">
+                        <input
+                          placeholder="Weight (kg)"
+                          className="form-control user-info"
+                          onChange={event => {this.setState({ userWeight: event.target.value})}}
+                        />
+                        <input
+                          placeholder="Weight Goal (kg)"
+                          className="form-control user-info"
+                          onChange={event => {this.setState({ userWeightGoal: event.target.value})}}
+                        />
+                        <input
+                          placeholder="Height (cm)"
+                          className="form-control user-info"
+                          onChange={event => {this.setState({ userHeight: event.target.value})}}
+                        />
+                        <input
+                          placeholder="Age"
+                          className="form-control user-info"
+                          onChange={event => {this.setState({ userAge: event.target.value})}}
+                        />
+                      </div>
+                      <span><label htmlFor="exercise">Exercise Amount (weekly):</label></span>
+                        <select onClick={event => {this.setState({ userExercise: event.target.value })}} id="exercise">
+                          <option value="0">None</option>
+                          <option value="3">Three or Less</option>
+                          <option value="4">Four to Six</option>
+                          <option value="7">Seven or More</option>
+                        </select>
+                      <button className="btn btn-secondary calculate-button" onClick={event => {event.preventDefault();this.calGoalCalculator()}}>Calculate</button>
+                  </form>
+                  <Link to={"/meals"}><button className="btn btn-secondary submit-button" onClick={this.addUser}>Submit</button></Link>
+                </div>
+                <div className="col-sm-5"></div>
+              </div>
             </div>
-            <Link to={"/meals"} ><button className="btn btn-primary submit-button" onClick={this.addUser}>Submit</button></Link>
           </div>
       )
   }

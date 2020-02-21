@@ -66,7 +66,8 @@ class AddMeal extends Component {
         return (
           <div>
             <span className="AddMeal-header"><label htmlFor="meals">Choose a meal:</label></span>
-            <select onClick={event => {this.setMeal(event)}} id="meals">
+            <select onChange={event => {if(event.target.value !== "select"){this.setMeal(event)}}} id="meals">
+              <option value="select">Select</option>
               <option value="breakfast">Breakfast</option>
               <option value="lunch">Lunch</option>
               <option value="dinner">Dinner</option>
