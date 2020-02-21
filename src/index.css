@@ -1,13 +1,25 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.AddMeal-header {
+    font-size: 25px;
+    margin: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.back-button {
+  margin: 15px;
+}
+
+.delete-food-item {
+  margin-bottom: 5px;
+}
+
+.food-desc {
+  margin: 5px;
+}
+
+.food-item {
+  margin: 15px;
+  font-size: 18px
+}
+
+#meals {
+  margin: 10px;
 }

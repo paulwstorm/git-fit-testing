@@ -26,6 +26,7 @@ const rootReducer = combineReducers({
         const breakfast = [...state.meals.breakfast, breakfastItem]
         const addBreakfast = _.clone(state)
         addBreakfast.meals.breakfast = breakfast
+        console.log(addBreakfast)
         return addBreakfast
       case ADD_LUNCH_ITEM:
         const lunchItem = action.payload.data.foods[0]
