@@ -48,8 +48,14 @@
 
 }
 
-.container-style {
-  background-color: #808080;
+.header-color {
+  color:  rgba(255, 255, 255, 0.95);
+}
+
+
+.list-group {
+  color: black !important;
+
 }
 
 #gender {
