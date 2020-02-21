@@ -83,3 +83,7 @@
   width: 215px;
   margin: 10px;
 }
+
+.food-item {
+  color: black !important;
+}

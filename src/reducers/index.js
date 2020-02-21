@@ -6,7 +6,7 @@ import _ from "lodash";
 const defaultState = {
   meals: {
     breakfast: [],
-    lunch: [{id: 1, food_name: "pizza", serving_qty: "1", serving_unit: "slice", nf_calories: "284.62"}, {id: 2, food_name: "burger", serving_qty: "1", serving_unit: "burger", nf_calories: "600.82"}],
+    lunch: [{id: 1, food_name: "pizza", serving_qty: "1", serving_unit: "slice", nf_calories: "284.62"}],
     dinner: [],
     snacks: []
   },
