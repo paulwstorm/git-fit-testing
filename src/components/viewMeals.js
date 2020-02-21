@@ -54,7 +54,7 @@ class ViewMeals extends Component {
                         <ul className="list-group list-group-flush lunch-list">
                             {
                                 this.props.meals.lunch.map(foodItem => {
-                                    return <li key={foodItem.id} className="list-group-item">
+                                    return <li key={foodItem.id} className="list-color list-group-item">
                                         <div class=" border border-light">
                                             <span>{foodItem.food_name}</span>
                                             <br />
