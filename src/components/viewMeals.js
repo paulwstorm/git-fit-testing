@@ -22,7 +22,7 @@ class ViewMeals extends Component {
                         <h3 className="text-center">Breakfast</h3>
                         <ul className="list-group list-group-flush breakfast-list">
                             {
-                                this.props.meals.lunch.map(foodItem => {
+                                this.props.meals.breakfast.map(foodItem => {
                                     return <li key={foodItem.id} className="list-group-item">
                                         <div class="table-responsive">
                                             <table className="table">
@@ -70,7 +70,7 @@ class ViewMeals extends Component {
                         <h3 className="text-center">Dinner</h3>
                         <ul className="list-group list-group-flush dinner-list">
                             {
-                                this.props.meals.lunch.map(foodItem => {
+                                this.props.meals.dinner.map(foodItem => {
                                     return <li key={foodItem.id} className="list-group-item">
                                         <div class="table-responsive">
                                             <table className="table">
@@ -94,7 +94,7 @@ class ViewMeals extends Component {
                         <h3 className="text-center">Snacks</h3>
                         <ul className="list-group list-group-flush snack-list">
                             {
-                                this.props.meals.lunch.map(foodItem => {
+                                this.props.meals.snacks.map(foodItem => {
                                     return <li key={foodItem.id} className="list-group-item">
                                         <div class="table-responsive">
                                             <table className="table">
