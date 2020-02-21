@@ -28,12 +28,14 @@ class AddMeal extends Component {
     }
 
     componentDidMount() {
-      this.getMealFood()
+      if (this.props) {
+        this.getMealFood()
+      }
     }
 
-    setMeal(event) {
+    async setMeal(event) {
       const thisMeal = event.target.value
-      this.setState({ meal: event.target.value })
+      await this.setState({ meal: event.target.value })
 
       this.getMealFood()
     }
@@ -64,11 +66,11 @@ class AddMeal extends Component {
         return (
           <div>
             <span className="AddMeal-header"><label htmlFor="meals">Choose a meal:</label></span>
-            <select id="meals">
-              <option onClick={event => {this.setMeal(event)}} value="breakfast">Breakfast</option>
-              <option onClick={event => {this.setMeal(event)}} value="lunch">Lunch</option>
-              <option onClick={event => {this.setMeal(event)}} value="dinner">Dinner</option>
-              <option onClick={event => {this.setMeal(event)}} value="snacks">Snacks</option>
+            <select onClick={event => {this.setMeal(event)}} id="meals">
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+              <option value="snacks">Snacks</option>
             </select>
           </div>
         )
@@ -131,13 +133,13 @@ class AddMeal extends Component {
                 <div className="col-md-3"></div>
               </div>
               <div className="row">
-                <div className="col-md-3"></div>
-                <div className="col-md-6">
+                <div className="col-md-2"></div>
+                <div className="col-md-8">
                   <div className="food-items">
                     {this.renderFood()}
                   </div>
                 </div>
-                <div className="col-md-3"></div>
+                <div className="col-md-2"></div>
               </div>
             </div>
     );
