@@ -2,9 +2,9 @@ import axios from "axios";
 
 export const ADD_USER = "add_user";
 export const ADD_BREAKFAST_ITEM = "add_breakfast_item"
-export const ADD_LUNCH_ITEM = "add_breakfast_item"
-export const ADD_DINNER_ITEM = "add_breakfast_item"
-export const ADD_SNACK_ITEM = "add_breakfast_item"
+export const ADD_LUNCH_ITEM = "add_lunch_item"
+export const ADD_DINNER_ITEM = "add_dinner_item"
+export const ADD_SNACK_ITEM = "add_snack_item"
 
 
 export function newUser(user) {
